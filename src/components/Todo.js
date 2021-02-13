@@ -15,16 +15,6 @@ const Todo = ({todo, remove}) => {
 			>	
 				X
 			</button>
-
-
-			
-			<span 
-				className="removeBtn"
-				onClick={()=> {
-					remove(todo.id)
-				}}>
-				 [ X ]
-			</span>
 		</p>
 	);
 };

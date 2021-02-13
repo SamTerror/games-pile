@@ -2,7 +2,8 @@
 
 ## Base
 * [x] Create items with unique ids
-* [ ] Add items count? Ou peut faire directement sur array au besoin?
+* [x] Ids system qui marche meme apres reload de la fenetre. Verification avant de créer si dispo?
+* [x] Add items count? Ou peut faire directement sur array au besoin?
 
 ### Search
 * [ ] List of suggestions

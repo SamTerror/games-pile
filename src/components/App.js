@@ -43,7 +43,9 @@ class App extends React.Component {
 
 		if (typeof(Storage) !== "undefined")
 			localStorage.todos = JSON.stringify(this.state.data);
+			localStorage.count = localStorage.count;
 
+		localStorage.setItem('count', localStorage.count);
 		console.log(localStorage);
 	}
 	// Handler to add todo
@@ -81,16 +83,16 @@ class App extends React.Component {
 	removeTodo(id) {
         console.log('Container Remove todo');
 
-		// filter out the todo that has to be removed
+		// Filter out the todo that has to be removed
 		const list = this.state.data.filter(todo => {
 			if (todo.id !== id)
 				return todo;
 		});
-		// update state
+		// Update state
 		this.setState({
 			data: list
 		}, () => {
-			// update localStorage
+			// Update localStorage
 			this.updateLocalStorage();
 		});
 	}
@@ -98,15 +100,14 @@ class App extends React.Component {
 	componentDidMount() {
         console.log('App componentDidMount');
 
-		localStorage.clear();
+        // Get values from localstorage if available
+		//localStorage.clear();
 		if (typeof(Storage) !== "undefined") {
-			//console.log('typeof(Storage) !== "undefined")');
 			if(!localStorage.todos) {
-				//console.log('!localStorage.todos');
 				localStorage.todos = JSON.stringify(this.state.data);
 			}
-			if(!localStorage.count) {
-				//console.log('!localStorage.count');
+			if(!localStorage.getItem('count')) {
+				console.log('trouve rien, reinitialise');
 				localStorage.count = 0;
 			}
 		} else {
@@ -114,6 +115,8 @@ class App extends React.Component {
 							 "color: hotpink; background: #333; font-size: x-large;font-family: Courier;");
 			window.id = 0;
 		}
+		// Use to reset count
+		//localStorage.setItem('count', 0);
 
 		console.log(localStorage);
 	}
