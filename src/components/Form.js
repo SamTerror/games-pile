@@ -29,7 +29,7 @@ class Form extends React.Component {
 			this.setState({
 				value: ''
 			});
-			this.input.placeholder = "Add todo here...";
+			this.input.placeholder = "Add games to your pile here...";
 		}
     }
 
@@ -48,12 +48,13 @@ class Form extends React.Component {
 						}}
 						className="field"
 						value={this.state.value}
-						placeholder="Add todos here..."
+						placeholder="Add games to your pile here..."
 						autoComplete="off"
 						onChange={this.handleChange}
 					/>
 					<button 
 						className="ui button"
+						type="button"
 						style={{marginLeft: '1%'}}
 						onClick={this.handleNewTodoAddition}
 					>	

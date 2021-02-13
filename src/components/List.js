@@ -15,8 +15,8 @@ const List = ({todos, remove}) => {
 	}
 	
 	return (
-		<div id="list">
-			<h4 id="info" style={{textAlign: 'center'}}> Your Todos: </h4>
+		<div id="list" className="ui segment">
+			<h4 id="info" style={{textAlign: 'center'}}> Your Pile: </h4>
 			{allTodos}
 		</div>
 	);

@@ -2,9 +2,9 @@ import React from 'react';
 
 const Footer = () => {
 	return (
-		<div id="footer">
+		<div id="footer" style={{textAlign: 'center'}}>
             <p>
-                Terrorwave
+                Terrorwave™
             </p>
 		</div>
 	);

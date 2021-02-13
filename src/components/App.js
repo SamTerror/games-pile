@@ -39,20 +39,25 @@ class App extends React.Component {
 	}
 
 	updateLocalStorage() {
-        console.log('Container Update localstorage');
+        //console.log('Container Update localstorage');
 
 		if (typeof(Storage) !== "undefined")
 			localStorage.todos = JSON.stringify(this.state.data);
+
+		console.log(localStorage);
 	}
 	// Handler to add todo
 	addTodo(val) {
         console.log('Container addtodo');
 
 		let id;
+		let lastId;
 		// if localStorage is available then increase localStorage count
 		// else use global window object's id variable
 		if (typeof(Storage) !== "undefined") {
-			id = Number(localStorage.count);
+			console.log(localStorage.count);
+			lastId = Number(localStorage.count);
+			id = lastId + 1;
 			localStorage.count = Number(localStorage.count) + 1;
 		} else {
 			id = window.id++;
@@ -91,22 +96,26 @@ class App extends React.Component {
 	}
 	
 	componentDidMount() {
-        console.log('Container componentDidMount');
+        console.log('App componentDidMount');
 
 		localStorage.clear();
 		if (typeof(Storage) !== "undefined") {
+			//console.log('typeof(Storage) !== "undefined")');
 			if(!localStorage.todos) {
+				//console.log('!localStorage.todos');
 				localStorage.todos = JSON.stringify(this.state.data);
 			}
 			if(!localStorage.count) {
+				//console.log('!localStorage.count');
 				localStorage.count = 0;
 			}
-
 		} else {
 			 console.log("%cApp will not remember todos created as LocalStorage Is Not Available",
 							 "color: hotpink; background: #333; font-size: x-large;font-family: Courier;");
 			window.id = 0;
 		}
+
+		console.log(localStorage);
 	}
 	
 	render() {
